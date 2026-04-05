@@ -2,1766 +2,687 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
-  <title>9WING.SHOP - จำหน่ายโปรแกรมช่วยเล่นโยกังจุติยุทธภพเลือดใหม่ บริการเช่าจอปล่อยบอท 24 ชม. ผ่าน OSLink และอื่นๆ อีกมากมาย</title>
-  <link rel="icon" type="image/x-icon" href="/1.ico">
-
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-
-  <meta name="description" content="9WING.SHOP ระบบโปรโยกังจุติยุทธภพเลือดใหม่ พร้อม Cloud OSLink ปล่อยบอท 24 ชม.">
-  <meta name="keywords" content="โยกัง,โปรโยกัง,โยกังจุติยุทธภพเลือดใหม่,Yulgang,บอทโยกัง,OSLink,Cloud Bot">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRO-YG.SHOP - Cute Premium Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Itim&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --primary:#6600ff;
-      --secondary:#00ffff;
-      --accent:#ff0066;
-      --success:#00ff99;
-      --warning:#ffcc00;
-      --glass:rgba(255,255,255,.05);
-      --glass-strong:rgba(255,255,255,.08);
-      --glass-border:rgba(255,255,255,.12);
-      --dark:#050505;
-      --safe-bottom:max(16px, env(safe-area-inset-bottom));
-      --safe-top:max(16px, env(safe-area-inset-top));
-      --container:1200px;
+      --bg:#090816;
+      --bg2:#131127;
+      --white:#f8fbff;
+      --text:#eef5ff;
+      --muted:#b9c6e7;
+      --cyan:#78f6ff;
+      --blue:#55bfff;
+      --violet:#9c7cff;
+      --pink:#ff84d8;
+      --rose:#ff9fcb;
+      --gold:#ffd67a;
+      --mint:#8cffd7;
+      --line:rgba(255,255,255,.11);
+      --glass1:rgba(19,16,42,.72);
+      --glass2:rgba(9,12,28,.72);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-      -webkit-tap-highlight-color:transparent;
-    }
-
-    html, body{
-      max-width:100%;
-      overflow-x:hidden;
-    }
-
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
-      font-family:'Kanit',sans-serif;
-      background:#050505;
-      color:#fff;
+      margin:0;
+      font-family:'Kanit','Prompt',sans-serif;
+      color:var(--text);
+      min-height:100vh;
       overflow-x:hidden;
-      line-height:1.5;
-    }
-
-    img, iframe, video{
-      max-width:100%;
-      height:auto;
-      display:block;
-    }
-
-    button, a{
-      touch-action:manipulation;
-    }
-
-    section{
-      scroll-margin-top:90px;
-    }
-
-    .container{
-      width:min(var(--container), calc(100% - 32px));
-      margin:auto;
-    }
-
-    .blink{
-      animation:blink .8s infinite;
-      color:yellow;
-      background:black;
-      padding:2px 6px;
-      border-radius:6px;
-      font-weight:bold;
-      display:inline-block;
-    }
-
-    @keyframes blink{
-      0%,50%{opacity:1}
-      51%,100%{opacity:0}
-    }
-
-    /* ===== MUSIC POPUP ===== */
-    .music-popup{
-      position:fixed;
-      inset:0;
       background:
-        radial-gradient(circle at top, rgba(0,255,255,.08), transparent 35%),
-        radial-gradient(circle at bottom, rgba(102,0,255,.12), transparent 40%),
-        rgba(0,0,0,.88);
-      backdrop-filter:blur(12px);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      z-index:10000;
-      padding:20px;
-      transition:.35s ease;
+        radial-gradient(circle at 12% 15%, rgba(120,246,255,.14), transparent 20%),
+        radial-gradient(circle at 85% 12%, rgba(156,124,255,.16), transparent 22%),
+        radial-gradient(circle at 80% 75%, rgba(255,132,216,.13), transparent 24%),
+        radial-gradient(circle at 20% 80%, rgba(140,255,215,.10), transparent 20%),
+        linear-gradient(180deg, #060611 0%, #0d1020 48%, #080812 100%);
     }
 
-    .music-popup.hide{
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-    }
-
-    .popup-box{
-      position:relative;
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.16);
-      border-radius:28px;
-      padding:28px 22px 22px;
-      text-align:center;
-      box-shadow:
-        0 25px 70px rgba(0,0,0,.55),
-        0 0 40px rgba(0,255,255,.15);
-      animation:popupIn .8s ease;
-      max-width:560px;
-      width:100%;
-      overflow:hidden;
-    }
-
-    .popup-box::before{
+    body::before{
       content:"";
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:3px;
-      background:linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
-    }
-
-    .popup-badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:8px 14px;
-      border-radius:999px;
-      font-size:13px;
-      margin-bottom:14px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      color:#d9ffff;
-    }
-
-    .popup-box h2{
-      font-family:'Orbitron',sans-serif;
-      margin-bottom:12px;
-      font-size:clamp(22px, 5vw, 32px);
-      line-height:1.2;
-    }
-
-    .popup-text{
-      color:#c8c8c8;
-      margin-bottom:14px;
-      line-height:1.7;
-      font-size:15px;
-    }
-
-    .popup-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:8px;
-    }
-
-    @keyframes popupIn{
-      from{transform:translateY(18px) scale(.96);opacity:0}
-      to{transform:translateY(0) scale(1);opacity:1}
-    }
-
-    /* ===== BACKGROUND ===== */
-    .cyber-bg{
       position:fixed;
-      inset:0;
-      background:radial-gradient(circle at 20% 30%,#1a0033 0%,#000 70%);
+      inset:-10%;
       z-index:-5;
+      pointer-events:none;
+      background:
+        linear-gradient(transparent 0 96%, rgba(120,246,255,.06) 96% 100%),
+        linear-gradient(90deg, transparent 0 96%, rgba(156,124,255,.08) 96% 100%);
+      background-size:70px 70px;
+      transform:perspective(900px) rotateX(74deg) translateY(16vh);
+      opacity:.58;
+      animation:gridMove 16s linear infinite;
+    }
+    @keyframes gridMove{
+      from{background-position:0 0,0 0}
+      to{background-position:0 70px,70px 0}
     }
 
     .orb{
-      position:absolute;
-      width:500px;
-      height:500px;
-      border-radius:50%;
-      filter:blur(100px);
-      opacity:.3;
-      animation:move 20s infinite alternate;
-      z-index:-4;
-      pointer-events:none;
-    }
-
-    .orb1{
-      background:var(--primary);
-      top:-10%;
-      left:-10%;
-    }
-
-    .orb2{
-      background:var(--secondary);
-      bottom:-10%;
-      right:-10%;
-      animation-delay:-5s;
-    }
-
-    @keyframes move{
-      from{transform:translate(0,0) scale(1)}
-      to{transform:translate(50px,100px) scale(1.1)}
-    }
-
-    /* ===== NAV ===== */
-    nav{
       position:fixed;
-      width:100%;
-      top:0;
-      left:0;
-      backdrop-filter:blur(18px);
-      background:rgba(0,0,0,.62);
-      padding:calc(var(--safe-top) - 4px) 5% 14px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-      border-bottom:1px solid var(--glass-border);
+      border-radius:50%;
+      filter:blur(85px);
+      pointer-events:none;
+      z-index:-4;
+      opacity:.26;
+      animation:floatOrb 11s ease-in-out infinite alternate;
+    }
+    .orb1{width:320px;height:320px;left:-70px;top:-40px;background:var(--blue)}
+    .orb2{width:360px;height:360px;right:-90px;top:70px;background:var(--violet);animation-delay:-2.5s}
+    .orb3{width:280px;height:280px;left:18%;bottom:-80px;background:var(--pink);animation-delay:-4s}
+    .orb4{width:220px;height:220px;right:22%;bottom:8%;background:var(--gold);animation-delay:-1.5s;opacity:.16}
+    .orb5{width:200px;height:200px;left:45%;top:38%;background:var(--mint);animation-delay:-6s;opacity:.14}
+    @keyframes floatOrb{
+      from{transform:translateY(0) translateX(0) scale(1)}
+      to{transform:translateY(30px) translateX(24px) scale(1.08)}
     }
 
-    .logo{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(18px, 4vw, 26px);
-      font-weight:800;
-      background:linear-gradient(45deg,var(--secondary),var(--primary));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      letter-spacing:2px;
-      text-decoration:none;
-      z-index:1002;
-    }
-
-    .nav-links{
-      list-style:none;
-      display:flex;
-      gap:30px;
-      align-items:center;
-    }
-
-    .nav-links a{
-      color:#fff;
-      text-decoration:none;
-      font-size:14px;
-      letter-spacing:1px;
-      transition:.3s;
-    }
-
-    .nav-links a:hover{
-      color:var(--secondary);
-      text-shadow:0 0 10px var(--secondary);
-    }
-
-    /* ===== HAMBURGER ===== */
-    .menu-toggle{
-      display:none;
-      width:50px;
-      height:50px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      position:relative;
-      z-index:1002;
-      transition:.3s ease;
-      backdrop-filter:blur(10px);
-    }
-
-    .menu-toggle:hover{
-      background:rgba(255,255,255,.08);
-      box-shadow:0 0 20px rgba(0,255,255,.12);
-    }
-
-    .menu-toggle span{
-      position:absolute;
-      width:22px;
-      height:2px;
-      background:#fff;
-      border-radius:10px;
-      transition:.28s ease;
-    }
-
-    .menu-toggle span:nth-child(1){ transform:translateY(-7px); }
-    .menu-toggle span:nth-child(2){ transform:translateY(0); }
-    .menu-toggle span:nth-child(3){ transform:translateY(7px); }
-
-    .menu-toggle.active span:nth-child(1){ transform:translateY(0) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2){ opacity:0; transform:scaleX(.2); }
-    .menu-toggle.active span:nth-child(3){ transform:translateY(0) rotate(-45deg); }
-
-    .nav-overlay{
+    .sparkles{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.45);
-      backdrop-filter:blur(3px);
-      opacity:0;
-      visibility:hidden;
-      transition:.25s ease;
-      z-index:998;
+      pointer-events:none;
+      z-index:-3;
+      overflow:hidden;
+    }
+    .sparkles span{
+      position:absolute;
+      display:block;
+      width:10px;
+      height:10px;
+      background:linear-gradient(135deg,var(--white),transparent);
+      clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);
+      opacity:.7;
+      animation:twinkle 4s ease-in-out infinite;
+    }
+    .sparkles span:nth-child(1){top:12%;left:8%;animation-delay:0s}
+    .sparkles span:nth-child(2){top:18%;left:78%;animation-delay:1.1s}
+    .sparkles span:nth-child(3){top:42%;left:88%;animation-delay:2.2s}
+    .sparkles span:nth-child(4){top:68%;left:14%;animation-delay:.7s}
+    .sparkles span:nth-child(5){top:78%;left:70%;animation-delay:1.8s}
+    .sparkles span:nth-child(6){top:55%;left:48%;animation-delay:2.8s}
+    @keyframes twinkle{
+      0%,100%{transform:scale(.7) rotate(0deg);opacity:.25}
+      50%{transform:scale(1.35) rotate(45deg);opacity:.9}
     }
 
-    .nav-overlay.show{
-      opacity:1;
-      visibility:visible;
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(12,11,28,.52);
+      border-bottom:1px solid rgba(255,255,255,.07);
     }
-
-    /* ===== HERO ===== */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:132px 20px 70px;
-    }
-
-    .hero-title{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(40px,8vw,90px);
-      font-weight:900;
-      background:linear-gradient(to bottom,#fff,#666);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      margin-bottom:20px;
-      animation:glow 3s ease-in-out infinite alternate;
-      line-height:1.05;
-    }
-
-    @keyframes glow{
-      0%{text-shadow:0 0 20px rgba(102,0,255,.3)}
-      100%{text-shadow:0 0 60px rgba(0,255,255,.8)}
-    }
-
-    .hero-subtitle{
-      max-width:700px;
-      color:#b2b2b2;
-      margin-bottom:32px;
-      line-height:1.7;
-      font-size:clamp(14px, 3.7vw, 18px);
-    }
-
-    /* ===== HERO STATUS ===== */
-    .hero-status-grid{
-      width:100%;
-      max-width:1000px;
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:16px;
-      margin-top:26px;
-    }
-
-    .status-card{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:22px;
-      padding:18px 16px;
-      text-align:left;
-      backdrop-filter:blur(12px);
-      box-shadow:0 12px 34px rgba(0,0,0,.18);
-      transition:.3s ease;
-    }
-
-    .status-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(0,255,255,.22);
-    }
-
-    .status-top{
+    .nav{
+      max-width:1180px;
+      margin:auto;
+      padding:16px 20px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:10px;
-      margin-bottom:10px;
-    }
-
-    .status-title{
-      font-size:13px;
-      color:#bdbdbd;
-      letter-spacing:.5px;
-    }
-
-    .status-pill{
-      font-size:11px;
-      padding:5px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      color:#fff;
-      white-space:nowrap;
-    }
-
-    .status-pill.online{
-      color:#00180d;
-      background:var(--success);
-      border-color:transparent;
-      font-weight:700;
-    }
-
-    .status-value{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(20px,3vw,28px);
-      font-weight:800;
-      color:#fff;
-      line-height:1.15;
-    }
-
-    .status-sub{
-      margin-top:6px;
-      font-size:13px;
-      color:#9f9f9f;
-    }
-
-    /* ===== VISITOR CARD ===== */
-    .visitor-card{
-      width:100%;
-      max-width:1000px;
-      margin-top:18px;
-      background:linear-gradient(135deg, rgba(0,255,255,.08), rgba(102,0,255,.08));
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:26px;
-      padding:22px;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:18px;
-      align-items:center;
-      box-shadow:0 16px 40px rgba(0,0,0,.22);
-      backdrop-filter:blur(12px);
-    }
-
-    .visitor-left{
-      text-align:left;
-    }
-
-    .visitor-kicker{
-      color:var(--secondary);
-      font-size:12px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      margin-bottom:8px;
-    }
-
-    .visitor-title{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(22px, 4vw, 36px);
-      margin-bottom:8px;
-      line-height:1.2;
-    }
-
-    .visitor-desc{
-      color:#c4c4c4;
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .visitor-stats{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
       gap:12px;
     }
-
-    .mini-card{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:18px;
-      padding:16px;
-      text-align:center;
+    .brand{
+      font-family:'Itim',cursive;
+      font-size:30px;
+      letter-spacing:1px;
+      background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet),var(--pink),var(--gold));
+      background-size:220% 100%;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:gradientFlow 7s linear infinite;
+      filter:drop-shadow(0 0 12px rgba(120,246,255,.35));
+    }
+    .cute-pill{
+      padding:8px 15px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.11);
+      background:linear-gradient(135deg, rgba(120,246,255,.14), rgba(255,132,216,.12));
+      color:#edf7ff;
+      font-size:13px;
+      box-shadow:0 0 22px rgba(120,246,255,.06) inset;
     }
 
-    .mini-card .label{
-      font-size:12px;
-      color:#adadad;
-      margin-bottom:6px;
+    @keyframes gradientFlow{
+      0%{background-position:0% 50%}
+      100%{background-position:220% 50%}
     }
 
-    .mini-card .value{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(18px, 3vw, 28px);
-      color:#00ffff;
-      font-weight:800;
+    .container{
+      max-width:1180px;
+      margin:auto;
+      padding:0 20px;
     }
 
-    /* ===== BUTTON ===== */
-    .btn-group{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-      justify-content:center;
-      width:100%;
-      max-width:920px;
+    .glass{
+      background:linear-gradient(180deg,var(--glass1),var(--glass2));
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:
+        0 22px 60px rgba(0,0,0,.34),
+        0 0 34px rgba(120,246,255,.07),
+        inset 0 1px 0 rgba(255,255,255,.05);
+      backdrop-filter:blur(16px);
     }
 
-    .btn{
-      padding:16px 28px;
-      border-radius:20px;
-      font-weight:700;
-      text-decoration:none;
-      letter-spacing:.3px;
-      transition:.35s;
+    .hero{
+      padding:86px 0 28px;
+      display:grid;
+      grid-template-columns:1.18fr .82fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .hero-left{
+      padding:36px;
       position:relative;
       overflow:hidden;
+    }
+    .hero-left::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, transparent 30%, rgba(255,255,255,.1) 50%, transparent 70%);
+      transform:translateX(-130%);
+      animation:shine 6.5s linear infinite;
+    }
+    @keyframes shine{to{transform:translateX(130%)}}
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 15px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(120,246,255,.12), rgba(255,132,216,.10));
+      border:1px solid rgba(255,255,255,.1);
+      color:#f2fbff;
+      margin-bottom:16px;
+      font-size:13px;
+    }
+
+    h1{
+      margin:0;
+      font-family:'Itim',cursive;
+      font-size:66px;
+      line-height:1;
+      letter-spacing:1px;
+      background:linear-gradient(90deg,#fff,var(--cyan),var(--blue),var(--violet),var(--pink),var(--gold));
+      background-size:230% 100%;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:gradientFlow 8s linear infinite, titlePulse 3.2s ease-in-out infinite alternate;
+      text-shadow:0 0 14px rgba(120,246,255,.35),0 0 32px rgba(255,132,216,.2);
+    }
+    @keyframes titlePulse{
+      from{filter:brightness(1)}
+      to{filter:brightness(1.18)}
+    }
+
+    .subtitle{
+      margin-top:14px;
+      color:var(--muted);
+      font-family:'Prompt',sans-serif;
+      font-size:18px;
+      line-height:1.85;
+      max-width:650px;
+    }
+
+    .actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+    .btn{
+      text-decoration:none;
+      border-radius:999px;
+      padding:15px 24px;
+      font-weight:800;
+      min-height:56px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      text-align:center;
-      min-height:56px;
-      border:none;
-      cursor:pointer;
-    }
-
-    .btn-primary{
-      background:#fff;
-      color:#000;
-    }
-
-    .btn-primary::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg,transparent,rgba(0,255,255,.45),transparent);
-      transform:translateX(-100%);
-    }
-
-    .btn-primary:hover::after{
-      transform:translateX(100%);
-      transition:.8s;
-    }
-
-    .btn-primary:hover{
-      box-shadow:0 0 30px rgba(0,255,255,.35);
-      transform:translateY(-4px);
-    }
-
-    .btn-ghost{
-      color:#fff;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-    }
-
-    .btn-ghost:hover{
-      background:rgba(255,255,255,.1);
-      transform:translateY(-3px);
-    }
-
-    /* ===== REVEAL ===== */
-    .reveal{
-      opacity:0;
-      transform:translateY(40px);
-      transition:1s ease;
-    }
-
-    .reveal.active{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    /* ===== GENERIC SECTION ===== */
-    .section{
-      padding:90px 0;
-    }
-
-    .section-header{
-      text-align:center;
-      margin-bottom:40px;
-    }
-
-    .section-tag{
-      color:var(--secondary);
-      text-transform:uppercase;
-      letter-spacing:5px;
-      font-size:12px;
-      text-align:center;
-      display:block;
-      margin-bottom:10px;
-    }
-
-    .section-title{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(26px, 4vw, 42px);
-      margin-bottom:10px;
-    }
-
-    .section-desc{
-      max-width:740px;
-      margin:auto;
-      color:#aeaeae;
-      line-height:1.7;
-      font-size:15px;
-    }
-
-    /* ===== STATS ===== */
-    .stats{
-      padding:80px 0;
-    }
-
-    .stats-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:24px;
-      margin-top:42px;
-    }
-
-    .stat-card{
-      background:var(--glass);
-      border:1px solid var(--glass-border);
-      padding:32px 24px;
-      border-radius:24px;
-      text-align:center;
-      transition:.35s;
-      backdrop-filter:blur(12px);
-    }
-
-    .stat-card:hover{
-      border-color:rgba(0,255,255,.25);
-      transform:translateY(-8px);
-      box-shadow:0 20px 40px rgba(0,0,0,.18);
-    }
-
-    .stat-number{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(2rem, 8vw, 3rem);
-      font-weight:800;
-      word-break:break-word;
-      margin-bottom:8px;
-    }
-
-    .stat-label{
-      color:#c7c7c7;
-      font-size:15px;
-      line-height:1.6;
-    }
-
-    .stat-date{
-      margin-top:8px;
-      color:var(--secondary);
-      font-size:12px;
-      letter-spacing:1px;
-      text-transform:uppercase;
-    }
-
-    /* ===== LIVE SYSTEM ===== */
-    .system-board{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:24px;
-      align-items:stretch;
-    }
-
-    .system-panel{
-      background:var(--glass);
-      border:1px solid var(--glass-border);
-      border-radius:28px;
-      padding:24px;
-      backdrop-filter:blur(14px);
-      box-shadow:0 16px 40px rgba(0,0,0,.16);
-    }
-
-    .system-list{
-      display:grid;
-      gap:14px;
-    }
-
-    .system-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:16px 18px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-    }
-
-    .system-name{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:600;
-    }
-
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--success);
-      box-shadow:0 0 14px rgba(0,255,153,.6);
-      flex:0 0 auto;
-    }
-
-    .system-meta{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-      gap:4px;
-      text-align:right;
-    }
-
-    .system-state{
-      font-size:13px;
-      color:#e6e6e6;
-      font-weight:700;
-    }
-
-    .system-update{
-      font-size:12px;
-      color:#9a9a9a;
-    }
-
-    .uptime-big{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      height:100%;
-      text-align:center;
-      min-height:260px;
-      background:
-        radial-gradient(circle at top, rgba(0,255,255,.08), transparent 45%),
-        rgba(255,255,255,.04);
-      border-radius:24px;
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    .uptime-big .label{
-      letter-spacing:3px;
-      text-transform:uppercase;
-      font-size:12px;
-      color:#9fdfff;
-      margin-bottom:8px;
-    }
-
-    .uptime-big .value{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(42px,8vw,76px);
-      color:#00ffff;
-      line-height:1;
-      text-shadow:0 0 24px rgba(0,255,255,.28);
-    }
-
-    .uptime-big .sub{
-      margin-top:10px;
-      color:#ababab;
-      font-size:14px;
-    }
-
-    /* ===== REVIEWS ===== */
-    .review-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:22px;
-      margin-top:34px;
-    }
-
-    .review-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:24px;
-      padding:22px;
-      backdrop-filter:blur(12px);
-      transition:.3s ease;
-      box-shadow:0 16px 34px rgba(0,0,0,.14);
-    }
-
-    .review-card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(0,255,255,.22);
-    }
-
-    .review-stars{
-      color:#ffd966;
-      margin-bottom:14px;
-      font-size:18px;
-      letter-spacing:2px;
-    }
-
-    .review-text{
-      color:#d7d7d7;
-      font-size:15px;
-      line-height:1.8;
-      min-height:120px;
-    }
-
-    .review-user{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:18px;
-      padding-top:16px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-
-    .avatar{
-      width:46px;
-      height:46px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      background:linear-gradient(135deg, var(--secondary), var(--primary));
-      color:#000;
-      flex:0 0 auto;
-    }
-
-    .review-name{
-      font-weight:700;
-      font-size:15px;
-    }
-
-    .review-role{
-      color:#9d9d9d;
-      font-size:13px;
-    }
-
-    .review-summary{
-      margin-top:28px;
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-    }
-
-    /* ===== VIDEO ===== */
-    .video-section{
-      padding:90px 0;
-      text-align:center;
-    }
-
-    .video-container{
-      max-width:900px;
-      margin:42px auto 0;
-      border-radius:28px;
+      transition:.28s ease;
+      position:relative;
       overflow:hidden;
-      border:1px solid var(--glass-border);
-      position:relative;
-      width:100%;
-      aspect-ratio:16 / 9;
-      background:#000;
-      box-shadow:0 16px 40px rgba(0,0,0,.24);
+      border:1px solid rgba(255,255,255,.12);
+      letter-spacing:.2px;
     }
-
-    .video-container iframe{
+    .btn::after{
+      content:"";
       position:absolute;
       inset:0;
-      width:100%;
-      height:100%;
-      border:0;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,.28), transparent);
+      transform:translateX(-120%);
+    }
+    .btn:hover{
+      transform:translateY(-3px) scale(1.03);
+      filter:brightness(1.08);
+    }
+    .btn:hover::after{
+      transform:translateX(120%);
+      transition:.85s;
+    }
+    .btn-primary{
+      color:#07131f;
+      background:linear-gradient(135deg,var(--cyan),var(--blue),var(--violet));
+      box-shadow:0 0 24px rgba(120,246,255,.25), 0 0 40px rgba(156,124,255,.16);
+    }
+    .btn-secondary{
+      color:#fff;
+      background:linear-gradient(135deg, rgba(255,159,203,.18), rgba(156,124,255,.16));
     }
 
-    /* ===== FOOTER ===== */
-    footer{
-      padding:70px 20px 110px;
-      text-align:center;
-      border-top:1px solid var(--glass-border);
-    }
-
-    .footer-card{
-      max-width:520px;
-      margin:0 auto 18px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:22px;
+    .hero-right{padding:22px}
+    .screen{
+      min-height:415px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at top, rgba(120,246,255,.11), transparent 28%),
+        linear-gradient(180deg, rgba(14,23,48,.95), rgba(7,11,24,.96));
       padding:18px;
-      backdrop-filter:blur(12px);
+      box-shadow:inset 0 0 32px rgba(120,246,255,.06);
     }
-
-    .footer-counter{
-      font-family:'Orbitron',sans-serif;
-      font-size:clamp(28px, 5vw, 44px);
-      color:#00ffff;
-      text-shadow:0 0 16px rgba(0,255,255,.25);
+    .topdots{
+      display:flex;
+      gap:8px;
+      margin-bottom:18px;
+    }
+    .topdots span{
+      width:10px;height:10px;border-radius:50%;
+      box-shadow:0 0 12px currentColor;
+    }
+    .topdots span:nth-child(1){background:var(--cyan);color:var(--cyan)}
+    .topdots span:nth-child(2){background:var(--pink);color:var(--pink)}
+    .topdots span:nth-child(3){background:var(--gold);color:var(--gold)}
+    .screen-title{
+      font-family:'Itim',cursive;
+      font-size:28px;
+      color:#fff;
+      margin-bottom:16px;
+      text-shadow:0 0 18px rgba(120,246,255,.26);
+    }
+    .scan{
+      height:2px;
+      background:linear-gradient(90deg, transparent, var(--cyan), var(--violet), var(--pink), transparent);
+      box-shadow:0 0 16px rgba(120,246,255,.6);
+      animation:scan 3.5s linear infinite;
+      margin-bottom:20px;
+    }
+    @keyframes scan{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(170px)}
+      100%{transform:translateY(0)}
+    }
+    .mini-grid{display:grid;gap:12px}
+    .mini{
+      padding:15px 16px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.07);
+      background:linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+    }
+    .mini .k{font-size:13px;color:#a4c1de}
+    .mini .v{
       margin-top:6px;
+      font-size:22px;
+      font-weight:800;
+      font-family:'Kanit',sans-serif;
+    }
+    .c1{color:var(--cyan)}
+    .c2{color:var(--pink)}
+    .c3{color:var(--gold)}
+
+    .section{
+      padding:22px 0 90px;
     }
 
-    /* ===== FLOATING CONTACT ===== */
-    .floating-contact{
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      margin-bottom:26px;
+    }
+    .card{
+      padding:24px;
+      transition:.25s ease;
+    }
+    .card:hover{
+      transform:translateY(-7px);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        0 0 28px rgba(120,246,255,.09),
+        0 0 18px rgba(255,132,216,.08);
+    }
+    .icon{
+      width:54px;height:54px;border-radius:18px;
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:14px;
+      font-size:24px;
+      background:linear-gradient(135deg, rgba(120,246,255,.18), rgba(255,132,216,.16));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 0 20px rgba(120,246,255,.08);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-family:'Itim',cursive;
+      font-size:28px;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.78;
+      font-family:'Prompt',sans-serif;
+    }
+
+    .pricing-title{
+      margin:6px 0 18px;
+      font-family:'Itim',cursive;
+      font-size:38px;
+      background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink),var(--gold));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .price-card{
+      padding:28px 24px;
+      position:relative;
+      overflow:hidden;
+      transition:.28s ease;
+    }
+    .price-card:hover{
+      transform:translateY(-8px) scale(1.01);
+    }
+    .price-card.popular{
+      border-color:rgba(255,214,122,.35);
+      box-shadow:
+        0 20px 62px rgba(0,0,0,.36),
+        0 0 30px rgba(255,214,122,.1),
+        inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .ribbon{
+      position:absolute;
+      top:14px;
+      right:-38px;
+      transform:rotate(35deg);
+      background:linear-gradient(135deg,var(--gold),#ffab52);
+      color:#2a1700;
+      font-weight:900;
+      font-size:12px;
+      padding:8px 40px;
+      box-shadow:0 8px 20px rgba(255,171,82,.24);
+    }
+    .plan{
+      color:#d7e8ff;
+      font-size:16px;
+      margin-bottom:10px;
+    }
+    .days{
+      font-size:34px;
+      font-weight:900;
+      color:#fff;
+      margin-bottom:8px;
+    }
+    .price{
+      display:flex;
+      align-items:flex-end;
+      gap:8px;
+      margin:10px 0 14px;
+    }
+    .amount{
+      font-size:56px;
+      line-height:1;
+      font-weight:900;
+      background:linear-gradient(90deg,#fff,var(--cyan),var(--violet),var(--pink));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 20px rgba(120,246,255,.16);
+    }
+    .baht{
+      font-size:20px;
+      font-weight:800;
+      color:#ffe7f2;
+    }
+    .unit{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-size:15px;
+    }
+    .features{
+      display:grid;
+      gap:10px;
+      margin-bottom:18px;
+    }
+    .feature{
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      color:#e2efff;
+      font-size:14px;
+      font-family:'Prompt',sans-serif;
+    }
+    .buy-btn{
+      width:100%;
+      min-height:58px;
+      font-size:16px;
+      color:#fff;
+      background:linear-gradient(135deg,#ffb14a,#ff5fb2,#8f72ff);
+      box-shadow:0 0 24px rgba(255,95,178,.26),0 0 42px rgba(255,177,74,.16);
+    }
+
+    .note{
+      margin-top:18px;
+      color:#9eb4d0;
+      font-size:14px;
+      font-family:'Prompt',sans-serif;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 20px 44px;
+      color:#97aac8;
+      font-family:'Prompt',sans-serif;
+    }
+
+    .float-wrap{
       position:fixed;
-      right:16px;
-      bottom:var(--safe-bottom);
+      right:18px;
+      bottom:18px;
       display:flex;
       flex-direction:column;
-      gap:10px;
-      z-index:999;
+      gap:12px;
+      z-index:60;
     }
-
     .float-btn{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      font-size:22px;
-      text-decoration:none;
-      box-shadow:0 12px 30px rgba(0,0,0,.35);
-      transition:.3s;
-      position:relative;
+      width:60px;height:60px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      text-decoration:none;color:#fff;font-size:24px;
       border:1px solid rgba(255,255,255,.12);
-      backdrop-filter:blur(10px);
+      box-shadow:0 10px 26px rgba(0,0,0,.34);
+      animation:floatBtn 3s ease-in-out infinite;
+    }
+    .float-btn:nth-child(1){background:linear-gradient(135deg,var(--cyan),var(--blue))}
+    .float-btn:nth-child(2){background:linear-gradient(135deg,var(--pink),var(--violet));animation-delay:-1s}
+    .float-btn:nth-child(3){background:linear-gradient(135deg,var(--gold),#ffab52);animation-delay:-2s}
+    .float-btn:hover{transform:scale(1.08)}
+    @keyframes floatBtn{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
     }
 
-    .float-btn::after{
-      content:attr(data-text);
-      position:absolute;
-      right:62px;
-      white-space:nowrap;
-      background:#000;
-      padding:6px 12px;
-      border-radius:20px;
-      font-size:12px;
-      opacity:0;
-      transform:translateX(10px);
-      transition:.3s;
-      border:1px solid rgba(255,255,255,.1);
-      pointer-events:none;
-    }
-
-    .float-btn:hover::after{
-      opacity:1;
-      transform:translateX(0);
-    }
-
-    .float-btn:hover{
-      transform:translateY(-2px) scale(1.06);
-    }
-
-    .float-btn.auto-tip::after{
-      opacity:1;
-      transform:translateX(0);
-    }
-
-    .float-btn.auto-tip{
-      animation:pulse 1.5s infinite;
-    }
-
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(255,255,255,.35)}
-      70%{box-shadow:0 0 0 13px rgba(255,255,255,0)}
-      100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
-    }
-
-    .float-line{
-      background:#ff0077;
-      box-shadow:0 12px 30px rgba(255, 75, 133,.32);
-    }
-
-    .float-discord{
-      background:#5865F2;
-      box-shadow:0 12px 30px rgba(88,101,242,.32);
-    }
-
-    /* ===== MOBILE ===== */
     @media (max-width: 980px){
-      .hero-status-grid,
-      .review-grid,
-      .review-summary{
-        grid-template-columns:repeat(2, minmax(0,1fr));
-      }
-
-      .visitor-card,
-      .system-board{
-        grid-template-columns:1fr;
-      }
+      .hero{grid-template-columns:1fr}
+      .cards,.pricing-grid{grid-template-columns:1fr}
+      h1{font-size:50px}
     }
 
-    @media (max-width: 768px){
-      nav{
-        padding:calc(var(--safe-top) - 2px) 16px 12px;
-      }
-
-      .menu-toggle{
-        display:flex;
-      }
-
-      .nav-links{
-        position:fixed;
-        top:calc(var(--safe-top) + 66px);
-        left:16px;
-        right:16px;
-        background:rgba(10,10,10,.96);
-        backdrop-filter:blur(18px);
-        border:1px solid rgba(255,255,255,.12);
-        border-radius:22px;
-        flex-direction:column;
-        gap:2px;
-        display:flex;
-        padding:10px;
-        transform:translateY(-14px) scale(.96);
-        opacity:0;
-        visibility:hidden;
-        pointer-events:none;
-        transition:.28s ease;
-        box-shadow:0 18px 50px rgba(0,0,0,.35);
-        z-index:1001;
-      }
-
-      .nav-links.show{
-        transform:translateY(0) scale(1);
-        opacity:1;
-        visibility:visible;
-        pointer-events:auto;
-      }
-
-      .nav-links li{
-        width:100%;
-      }
-
-      .nav-links a{
-        display:block;
-        width:100%;
-        padding:14px 16px;
-        text-align:center;
-        font-size:15px;
-        border-radius:14px;
-      }
-
-      .nav-links a:hover{
-        background:rgba(255,255,255,.06);
-      }
-
-      .hero{
-        padding:118px 16px 50px;
-        min-height:auto;
-      }
-
-      .hero-title{
-        font-size:40px;
-        margin-bottom:14px;
-      }
-
-      .hero-subtitle{
-        font-size:15px;
-        margin-bottom:28px;
-      }
-
-      .btn-group{
-        flex-direction:column;
-        gap:12px;
-        align-items:stretch;
-        max-width:420px;
-      }
-
-      .btn{
-        width:100%;
-        padding:15px 18px;
-        min-height:54px;
-        border-radius:18px;
-        font-size:14px;
-      }
-
-      .hero-status-grid,
-      .visitor-stats,
-      .stats-grid,
-      .review-grid,
-      .review-summary{
-        grid-template-columns:1fr;
-      }
-
-      .status-card,
-      .mini-card,
-      .review-card{
-        text-align:left;
-      }
-
-      .visitor-card{
-        padding:18px;
-      }
-
-      .visitor-left{
-        text-align:left;
-      }
-
-      .music-popup{
-        padding:16px;
-      }
-
-      .popup-box{
-        padding:22px 16px 16px;
-        border-radius:24px;
-      }
-
-      .popup-badge{
-        font-size:12px;
-        padding:7px 12px;
-        margin-bottom:12px;
-      }
-
-      .popup-text{
-        font-size:14px;
-        line-height:1.65;
-      }
-
-      .popup-actions{
-        flex-direction:column;
-      }
-
-      .stats,
-      .video-section,
-      .section{
-        padding:60px 0;
-      }
-
-      .video-container{
-        margin-top:28px;
-        border-radius:20px;
-      }
-
-      footer{
-        padding:50px 16px 110px;
-      }
-
-      .floating-contact{
-        right:50%;
-        transform:translateX(50%);
-        bottom:max(10px, env(safe-area-inset-bottom));
-        flex-direction:row;
-        gap:10px;
-        padding:8px 10px;
-        background:rgba(0,0,0,.5);
-        border:1px solid rgba(255,255,255,.1);
-        backdrop-filter:blur(14px);
-        border-radius:999px;
-      }
-
-      .float-btn{
-        width:46px;
-        height:46px;
-        font-size:20px;
-        box-shadow:none;
-      }
-
-      .float-btn::after{
-        display:none;
-      }
-
-      .section-tag{
-        letter-spacing:2px;
-        font-size:11px;
-      }
-
-      .system-row{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .system-meta{
-        align-items:flex-start;
-        text-align:left;
-      }
-    }
-
-    @media (max-width: 480px){
-      .hero-title{
-        font-size:34px;
-      }
-
-      .hero-subtitle{
-        font-size:14px;
-      }
-
-      .popup-box h2{
-        font-size:20px;
-      }
-
-      .stat-number{
-        font-size:1.8rem;
-      }
-
-      .popup-box{
-        max-width:100%;
-      }
-
-      .visitor-title{
-        font-size:26px;
-      }
+    @media (max-width: 560px){
+      .nav{padding:14px 16px}
+      .brand{font-size:25px}
+      .hero-left,.hero-right{padding:22px}
+      h1{font-size:40px}
+      .subtitle{font-size:16px}
+      .actions{flex-direction:column}
+      .btn{width:100%}
+      .amount{font-size:46px}
+      .pricing-title{font-size:32px}
     }
   </style>
 </head>
-
 <body>
-  <div class="nav-overlay" id="navOverlay"></div>
-
-  <!-- ===== POPUP ===== -->
-  <div id="musicPopup" class="music-popup">
-    <div class="popup-box">
-      <div class="popup-badge">⚡ UPDATE ล่าสุดจาก 9WING.SHOP</div>
-
-      <h2><span class="blink">UPDATE PRO</span></h2>
-      <h2>ประกาศจาก 9WING.SHOP</h2>
-
-      <p class="popup-text">
-        <b>🛡️ BYPASS AUTO BAN 🛡️</b><br>
-        <span style="color:#00ff99;">หากไม่ UPDATE จะไม่สามารถใช้งานได้</span>
-      </p>
-
-      <p class="popup-text">
-        <span class="blink">NEW</span> UPDATE PRO PC 6 & 7 👉
-        <a href="https://www.9wing.shop/Update%20pro.html#" target="_blank" rel="noopener noreferrer" style="color:#FF7B42;font-weight:bold;text-decoration:none;">UPDATE</a>
-      </p>
-
-      <p class="popup-text">
-        🤖 เช่าจอปล่อยบอทผ่าน <b>OSLink</b> 👉
-        <a href="https://www.9wing.shop/OSLink.html" target="_blank" rel="noopener noreferrer" style="color:#FF7B42;font-weight:bold;text-decoration:none;">เช่าเลย</a>
-      </p>
-
-      <div class="popup-actions">
-        <button id="enterSite" type="button" class="btn btn-primary">
-          🌟 เข้าสู่เว็บไซต์
-        </button>
-        <a href="https://www.9wing.shop/OSLink.html" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          ดูบริการ OSLink
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== AUDIO ===== -->
-  <audio id="bgMusic" loop>
-    <source src="https://www.9wing.shop/โยยัง (2).mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- ===== BACKGROUND ===== -->
-  <div class="cyber-bg"></div>
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="orb orb4"></div>
+  <div class="orb orb5"></div>
 
-  <!-- ===== NAV ===== -->
-  <nav>
-    <a href="#" class="logo">9WING.SHOP</a>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="navLinks">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#stats">System</a></li>
-      <li><a href="#liveStatus">Status</a></li>
-      <li><a href="#reviews">Review</a></li>
-      <li><a href="https://www.9wing.shop/OSLink.html" target="_blank" rel="noopener noreferrer">OSLink</a></li>
-    </ul>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <span class="section-tag">PRO YULGANG & CLOUD OSLINK</span>
-    <h1 class="hero-title">9WING.SHOP</h1>
-    <p class="hero-subtitle">
-      ยกระดับการเล่นโยกังของคุณด้วยโปรแกรมช่วยเล่นที่เสถียรที่สุด
-      พร้อมบริการเช่าจอ Cloud ปล่อยบอท 24 ชม. ผ่าน OSLink ความเร็วสูง
-    </p>
-
-    <div class="btn-group">
-      <a href="https://www.9wing.shop/menu.html" class="btn btn-primary">
-        🎮 PRO โยกังจุติยุทธภพเลือดใหม่
-      </a>
-      <a href="https://www.9wing.shop/menu2.html" class="btn btn-primary">
-        🎮 PRO โยกังยุทธภพสนุก
-      </a>
-      <a href="https://www.9wing.shop/OSLink.html" class="btn btn-primary">
-        🤖 เช่าจอปล่อยบอทผ่าน OSLINK
-      </a>
-    </div>
-
-    <div class="hero-status-grid reveal">
-      <div class="status-card">
-        <div class="status-top">
-          <div class="status-title">สถานะระบบ</div>
-          <div class="status-pill online">ONLINE</div>
-        </div>
-        <div class="status-value">พร้อมใช้งาน</div>
-        <div class="status-sub">อัปเดตล่าสุด: <span id="lastUpdatedHero">13/03/2026 20:00</span></div>
-      </div>
-
-      <div class="status-card">
-        <div class="status-top">
-          <div class="status-title">จำนวนผู้ใช้</div>
-          <div class="status-pill">ACTIVE</div>
-        </div>
-        <div class="status-value" id="totalUsers">193</div>
-        <div class="status-sub">รวมผู้ใช้ PC + CLOUD</div>
-      </div>
-
-      <div class="status-card">
-        <div class="status-top">
-          <div class="status-title">รีวิวทั้งหมด</div>
-          <div class="status-pill">5★</div>
-        </div>
-        <div class="status-value" id="totalReviews">128</div>
-        <div class="status-sub">คะแนนเฉลี่ย 4.9 / 5.0</div>
-      </div>
-
-      <div class="status-card">
-        <div class="status-top">
-          <div class="status-title">Uptime</div>
-          <div class="status-pill">LIVE</div>
-        </div>
-        <div class="status-value" id="uptimeText">99.9%</div>
-        <div class="status-sub">เสถียร พร้อมใช้งานต่อเนื่อง</div>
-      </div>
-    </div>
-
-    <div class="visitor-card reveal">
-      <div class="visitor-left">
-        <div class="visitor-kicker">Live Counter</div>
-        <div class="visitor-title">สถิติผู้เข้าชมเว็บไซต์</div>
-        <div class="visitor-desc">
-          แสดงจำนวนผู้เข้าชมรวมของหน้าเว็บไซต์ และสรุปตัวเลขสำคัญแบบเรียลไทม์
-          เพื่อเพิ่มความน่าเชื่อถือและให้ลูกค้าเห็นการอัปเดตของระบบอย่างชัดเจน
-        </div>
-      </div>
-
-      <div class="visitor-stats">
-        <div class="mini-card">
-          <div class="label">ผู้เข้าชมทั้งหมด</div>
-          <div class="value" id="visitCount">...</div>
-        </div>
-        <div class="mini-card">
-          <div class="label">ผู้ใช้งานรวม</div>
-          <div class="value" id="miniTotalUsers">193</div>
-        </div>
-        <div class="mini-card">
-          <div class="label">รีวิวสะสม</div>
-          <div class="value" id="miniTotalReviews">128</div>
-        </div>
-        <div class="mini-card">
-          <div class="label">ระบบออนไลน์</div>
-          <div class="value" id="miniUptime">99.9%</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== STATS ===== -->
-  <section class="stats reveal" id="stats">
-    <div class="container">
-      <span class="section-tag">System Numbers</span>
-      <div class="section-header">
-        <h2 class="section-title">จำนวนผู้ใช้ / รีวิว / Uptime</h2>
-        <p class="section-desc">
-          สรุปตัวเลขสำคัญของระบบ เพื่อให้ลูกค้าเห็นภาพรวมการใช้งาน ความน่าเชื่อถือ
-          และความต่อเนื่องของบริการในหน้าเดียว
-        </p>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <span class="stat-number" data-target="132">0</span>
-          <div class="stat-label">ALL USERS PC NOTEBOOK</div>
-          <div class="stat-date">อัปเดต 08/03/2026</div>
-        </div>
-
-        <div class="stat-card reveal">
-          <span class="stat-number" data-target="61">0</span>
-          <div class="stat-label">ALL USERS CLOUD PHONE</div>
-          <div class="stat-date">อัปเดต 02/03/2026</div>
-        </div>
-
-        <div class="stat-card reveal">
-          <span class="stat-number" data-target="128">0</span>
-          <div class="stat-label">TOTAL REVIEWS</div>
-          <div class="stat-date">คะแนนเฉลี่ย 4.9/5</div>
-        </div>
-
-        <div class="stat-card reveal">
-          <span class="stat-number" data-target="99.9" data-decimals="1">0</span>
-          <div class="stat-label">UPTIME SYSTEM</div>
-          <div class="stat-date">ออนไลน์ต่อเนื่อง</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== LIVE STATUS ===== -->
-  <section class="section reveal" id="liveStatus">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Live Status</span>
-        <h2 class="section-title">สถานะระบบออนไลน์ / อัปเดตล่าสุด</h2>
-        <p class="section-desc">
-          แสดงสถานะการพร้อมใช้งานของระบบหลัก พร้อมเวลาการอัปเดตล่าสุด เพื่อเพิ่มความมั่นใจให้ลูกค้าก่อนใช้งาน
-        </p>
-      </div>
-
-      <div class="system-board">
-        <div class="system-panel">
-          <div class="system-list">
-            <div class="system-row">
-              <div class="system-name"><span class="dot"></span> PRO PC SYSTEM</div>
-              <div class="system-meta">
-                <div class="system-state">ONLINE</div>
-                <div class="system-update">อัปเดตล่าสุด: <span class="lastUpdatedText">13/03/2026 20:00</span></div>
-              </div>
-            </div>
-
-            <div class="system-row">
-              <div class="system-name"><span class="dot"></span> CLOUD / OSLINK</div>
-              <div class="system-meta">
-                <div class="system-state">ONLINE</div>
-                <div class="system-update">อัปเดตล่าสุด: <span class="lastUpdatedText">13/03/2026 20:00</span></div>
-              </div>
-            </div>
-
-            <div class="system-row">
-              <div class="system-name"><span class="dot"></span> DOWNLOAD CENTER</div>
-              <div class="system-meta">
-                <div class="system-state">NORMAL</div>
-                <div class="system-update">อัปเดตล่าสุด: <span class="lastUpdatedText">13/03/2026 20:00</span></div>
-              </div>
-            </div>
-
-            <div class="system-row">
-              <div class="system-name"><span class="dot"></span> SUPPORT / CONTACT</div>
-              <div class="system-meta">
-                <div class="system-state">ACTIVE</div>
-                <div class="system-update">ตอบกลับตามรอบเวลา</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="system-panel">
-          <div class="uptime-big">
-            <div class="label">System Uptime</div>
-            <div class="value" id="uptimeMain">99.9%</div>
-            <div class="sub">สถานะระบบโดยรวมพร้อมใช้งาน</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== REVIEWS ===== -->
-  <section class="section reveal" id="reviews">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Customer Reviews</span>
-        <h2 class="section-title">รีวิวลูกค้า</h2>
-        <p class="section-desc">
-          ตัวอย่างเสียงตอบรับจากผู้ใช้งานจริง ทั้งฝั่งโปรแกรม PC และบริการ Cloud / OSLink
-          เพื่อให้ลูกค้าใหม่ตัดสินใจได้ง่ายขึ้น
-        </p>
-      </div>
-
-      <div class="review-grid">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <div class="review-text">
-            ใช้งานง่ายมาก ตั้งค่าไม่ยาก ระบบค่อนข้างนิ่ง ปล่อยได้ยาว ๆ
-            โดยรวมโอเคมากสำหรับคนที่ต้องการความสะดวกและประหยัดเวลา
-          </div>
-          <div class="review-user">
-            <div class="avatar">A</div>
-            <div>
-              <div class="review-name">Aom Gamer</div>
-              <div class="review-role">ผู้ใช้ PRO PC</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <div class="review-text">
-            เช่าจอผ่าน OSLINK ค่อนข้างสะดวก เปิดใช้งานง่าย ไม่ต้องเฝ้าหน้าจอตลอด
-            เหมาะกับคนที่อยากปล่อยยาว ๆ แล้วไปทำอย่างอื่นต่อได้
-          </div>
-          <div class="review-user">
-            <div class="avatar">N</div>
-            <div>
-              <div class="review-name">Nino YG</div>
-              <div class="review-role">ผู้ใช้ CLOUD</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <div class="review-text">
-            ชอบตรงที่มีอัปเดตระบบเรื่อย ๆ และหน้าเว็บดูสถานะได้ชัด
-            เวลามีประกาศหรืออัปเดตใหม่เห็นชัดเจน ไม่ต้องคอยถามซ้ำบ่อย
-          </div>
-          <div class="review-user">
-            <div class="avatar">S</div>
-            <div>
-              <div class="review-name">Sky Runner</div>
-              <div class="review-role">ลูกค้าประจำ</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-summary">
-        <div class="mini-card">
-          <div class="label">รีวิวทั้งหมด</div>
-          <div class="value" id="reviewCountSummary">128</div>
-        </div>
-        <div class="mini-card">
-          <div class="label">คะแนนเฉลี่ย</div>
-          <div class="value">4.9★</div>
-        </div>
-        <div class="mini-card">
-          <div class="label">ผู้ใช้ที่กลับมาใช้ซ้ำ</div>
-          <div class="value">87%</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== VIDEO ===== -->
-  <section class="video-section reveal" id="reviewVideo">
-    <div class="container">
-      <span class="section-tag">Review Video</span>
-      <div class="section-header">
-        <h2 class="section-title">วิดีโอรีวิวการใช้งาน</h2>
-        <p class="section-desc">
-          รวมวิดีโอรีวิวการใช้งาน และตัวอย่างการทำงานของระบบในรูปแบบที่ดูได้ง่าย
-        </p>
-      </div>
-
-      <div class="video-container">
-        <iframe
-          src="https://www.youtube.com/embed/videoseries?si=ARQPDtew-PSK-7tx&amp;list=PLOcSH_6jJxRICye4Hzw2BigQYIc7oV3RA"
-          title="โปร ตี+ออโต้ เปิดกล่องออโต้ BY 9WING"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="footer-card">
-      <div style="color:#a8a8a8; font-size:14px;">ผู้เข้าชมเว็บไซต์</div>
-      <div class="footer-counter" id="footerVisitCount">...</div>
-    </div>
-    <p style="color:#666; margin-top:18px;">© 2026 9WING.SHOP All rights reserved.</p>
-  </footer>
-
-  <!-- ===== FLOATING CONTACT ===== -->
-  <div class="floating-contact">
-    <a href="https://www.m.me/say.wing.656700"
-       class="float-btn float-line"
-       target="_blank" rel="noopener noreferrer"
-       data-text="สอบถาม Messenger"
-       aria-label="สอบถาม Messenger">
-      💬
-    </a>
-
-    <a href="https://discord.gg/PDFq23qA"
-       class="float-btn float-discord"
-       target="_blank" rel="noopener noreferrer"
-       data-text="เข้า Discord"
-       aria-label="เข้า Discord">
-      🎧
-    </a>
-
-    <a href="https://www.9wing.shop/DOWNLOAD.html"
-       class="float-btn float-discord"
-       target="_blank" rel="noopener noreferrer"
-       data-text="APK Download"
-       aria-label="ดาวน์โหลด APK">
-      📥
-    </a>
+  <div class="sparkles">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <!-- ===== SCRIPTS ===== -->
-  <script>
-    // Counter animation
-    const counters = document.querySelectorAll('.stat-number');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseFloat(el.dataset.target);
-          const decimals = parseInt(el.dataset.decimals || "0", 10);
-          let count = 0;
-          const step = target / 120;
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand">PRO-YG.SHOP</div>
+      <div class="cute-pill">Cute Premium Full System</div>
+    </div>
+  </div>
 
-          const run = () => {
-            count += step;
-            if (count < target) {
-              el.textContent = decimals > 0 ? count.toFixed(decimals) : Math.ceil(count);
-              requestAnimationFrame(run);
-            } else {
-              el.textContent = decimals > 0 ? target.toFixed(decimals) : target;
-            }
-          };
+  <div class="container">
+    <section class="hero">
+      <div class="hero-left glass">
+        <div class="tag">💖 ฟอนต์น่ารัก • Glow หลายสี • Glass Premium</div>
+        <h1>PRO-YG.SHOP</h1>
+        <div class="subtitle">
+          เวอร์ชันน่ารักเต็มระบบมาแล้ว ✨
+          ปรับฟอนต์ให้ละมุนขึ้น เพิ่มหัวเว็บ glow ไล่สี ฟ้า ม่วง ชมพู ทอง
+          พื้นหลังนีออนสไตล์เกมมิ่ง การ์ด glass แบบหรู และส่วนราคาเช่าที่อ่านง่าย
+          ให้หน้าเว็บดูทั้งน่ารัก พรีเมียม และทันสมัยในหน้าเดียว
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="#pricing">ดูราคาเช่า</a>
+          <a class="btn btn-secondary" href="#">ติดต่อสอบถาม</a>
+        </div>
+      </div>
 
-          run();
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: .5 });
+      <div class="hero-right glass">
+        <div class="screen">
+          <div class="topdots"><span></span><span></span><span></span></div>
+          <div class="screen-title">Cute Premium Rental</div>
+          <div class="scan"></div>
+          <div class="mini-grid">
+            <div class="mini">
+              <div class="k">แพ็กเกจเริ่มต้น</div>
+              <div class="v c1">7 วัน / 79 บาท</div>
+            </div>
+            <div class="mini">
+              <div class="k">แพ็กเกจคุ้มค่า</div>
+              <div class="v c2">15 วัน / 149 บาท</div>
+            </div>
+            <div class="mini">
+              <div class="k">แพ็กเกจระยะยาว</div>
+              <div class="v c3">30 วัน / 259 บาท</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    counters.forEach(c => observer.observe(c));
+    <section class="section">
+      <div class="cards">
+        <div class="card glass">
+          <div class="icon">🌸</div>
+          <h2>ฟอนต์น่ารักขึ้น</h2>
+          <p>ใช้ฟอนต์ Itim, Kanit และ Prompt เพื่อให้หัวเว็บน่ารักขึ้น แต่ยังอ่านง่ายและดูมืออาชีพอยู่</p>
+        </div>
 
-    // Reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const revObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('active');
-      });
-    }, { threshold: .15 });
+        <div class="card glass">
+          <div class="icon">✨</div>
+          <h2>Glow หวานแต่หรู</h2>
+          <p>เพิ่มแสงเรืองหลายสีแบบนุ่ม ๆ และ sparkle effect เล็ก ๆ ให้เว็บดูหวานขึ้นโดยไม่รกสายตา</p>
+        </div>
 
-    reveals.forEach(r => revObs.observe(r));
-  </script>
+        <div class="card glass">
+          <div class="icon">💎</div>
+          <h2>Glass Premium</h2>
+          <p>การ์ดใสแบบพรีเมียมพร้อมเงาและไล่สี ช่วยให้หน้าเว็บดูสะอาด ละมุน และมีมิติมากขึ้น</p>
+        </div>
+      </div>
 
-  <script>
-    // Visitor counter (count once per device/browser)
-    document.addEventListener("DOMContentLoaded", async () => {
-      const heroCounterEl = document.getElementById("visitCount");
-      const footerCounterEl = document.getElementById("footerVisitCount");
-      const namespace = "9wing-shop";
-      const key = "homepage-visits";
-      const storageKey = "counted_9wing_homepage";
+      <h2 class="pricing-title" id="pricing">เรตราคาเช่า</h2>
+      <div class="pricing-grid">
+        <div class="price-card glass">
+          <div class="plan">แพ็กเกจเริ่มต้น</div>
+          <div class="days">7 วัน</div>
+          <div class="price">
+            <div class="amount">79</div>
+            <div class="baht">บาท</div>
+          </div>
+          <div class="unit">เหมาะสำหรับทดลองใช้งาน</div>
+          <div class="features">
+            <div class="feature">✔ ใช้งานได้ต่อเนื่อง</div>
+            <div class="feature">✔ เหมาะสำหรับเริ่มต้น</div>
+            <div class="feature">✔ รองรับระบบ Cloud</div>
+          </div>
+          <a class="btn buy-btn" href="#">ซื้อแพ็กเกจ 7 วัน</a>
+        </div>
 
-      try {
-        let apiUrl = `https://api.countapi.xyz/get/${namespace}/${key}`;
+        <div class="price-card glass popular">
+          <div class="ribbon">แนะนำ</div>
+          <div class="plan">แพ็กเกจคุ้มค่า</div>
+          <div class="days">15 วัน</div>
+          <div class="price">
+            <div class="amount">149</div>
+            <div class="baht">บาท</div>
+          </div>
+          <div class="unit">คุ้มสำหรับผู้ใช้ประจำ</div>
+          <div class="features">
+            <div class="feature">✔ ใช้งานได้นานขึ้น</div>
+            <div class="feature">✔ คุ้มที่สุดสำหรับสายใช้งานบ่อย</div>
+            <div class="feature">✔ ระบบเสถียรพร้อมใช้งาน</div>
+          </div>
+          <a class="btn buy-btn" href="#">ซื้อแพ็กเกจ 15 วัน</a>
+        </div>
 
-        if (!localStorage.getItem(storageKey)) {
-          apiUrl = `https://api.countapi.xyz/hit/${namespace}/${key}`;
-          localStorage.setItem(storageKey, "yes");
-        }
+        <div class="price-card glass">
+          <div class="plan">แพ็กเกจระยะยาว</div>
+          <div class="days">30 วัน</div>
+          <div class="price">
+            <div class="amount">259</div>
+            <div class="baht">บาท</div>
+          </div>
+          <div class="unit">เหมาะสำหรับใช้งานต่อเนื่อง</div>
+          <div class="features">
+            <div class="feature">✔ ใช้งานได้ยาวต่อเนื่อง</div>
+            <div class="feature">✔ เหมาะสำหรับสายฟาร์ม</div>
+            <div class="feature">✔ รองรับการใช้งานเต็มรูปแบบ</div>
+          </div>
+          <a class="btn buy-btn" href="#">ซื้อแพ็กเกจ 30 วัน</a>
+        </div>
+      </div>
 
-        const res = await fetch(apiUrl);
-        const data = await res.json();
-        const formatted = (data.value || 0).toLocaleString("th-TH");
+      <div class="note">* ปุ่มซื้อสามารถนำไปใส่ลิงก์ Line, Facebook, Discord หรือหน้าชำระเงินจริงได้</div>
+    </section>
+  </div>
 
-        if (heroCounterEl) heroCounterEl.textContent = formatted;
-        if (footerCounterEl) footerCounterEl.textContent = formatted;
-      } catch (err) {
-        console.error("Counter error:", err);
-        if (heroCounterEl) heroCounterEl.textContent = "N/A";
-        if (footerCounterEl) footerCounterEl.textContent = "N/A";
-      }
-    });
-  </script>
+  <footer>
+    © 2026 PRO-YG.SHOP All rights reserved.
+  </footer>
 
-  <script>
-    // Sync summary numbers
-    document.addEventListener("DOMContentLoaded", () => {
-      const pcUsers = 132;
-      const cloudUsers = 61;
-      const totalUsers = pcUsers + cloudUsers;
-      const totalReviews = 128;
-      const uptime = "99.9%";
-
-      const ids = [
-        ["totalUsers", totalUsers],
-        ["miniTotalUsers", totalUsers],
-        ["totalReviews", totalReviews],
-        ["miniTotalReviews", totalReviews],
-        ["reviewCountSummary", totalReviews],
-        ["uptimeText", uptime],
-        ["miniUptime", uptime],
-        ["uptimeMain", uptime]
-      ];
-
-      ids.forEach(([id, value]) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = value;
-      });
-
-      const lastUpdated = new Date();
-      const dd = String(lastUpdated.getDate()).padStart(2, "0");
-      const mm = String(lastUpdated.getMonth() + 1).padStart(2, "0");
-      const yyyy = lastUpdated.getFullYear();
-      const hh = String(lastUpdated.getHours()).padStart(2, "0");
-      const min = String(lastUpdated.getMinutes()).padStart(2, "0");
-      const formatted = `${dd}/${mm}/${yyyy} ${hh}:${min}`;
-
-      const heroUpdated = document.getElementById("lastUpdatedHero");
-      if (heroUpdated) heroUpdated.textContent = formatted;
-
-      document.querySelectorAll(".lastUpdatedText").forEach(el => {
-        el.textContent = formatted;
-      });
-    });
-  </script>
-
-  <script>
-    // Auto tooltip ครั้งแรก
-    document.addEventListener("DOMContentLoaded", () => {
-      if (!localStorage.getItem("contactTipShown")) {
-        setTimeout(() => {
-          const btns = document.querySelectorAll(".float-btn");
-          btns.forEach(btn => btn.classList.add("auto-tip"));
-
-          setTimeout(() => {
-            btns.forEach(btn => btn.classList.remove("auto-tip"));
-            localStorage.setItem("contactTipShown", "yes");
-          }, 2500);
-        }, 1600);
-      }
-    });
-  </script>
-
-  <script>
-    // Popup + Play music
-    document.addEventListener("DOMContentLoaded", () => {
-      const popup = document.getElementById("musicPopup");
-      const btn = document.getElementById("enterSite");
-      const music = document.getElementById("bgMusic");
-
-      btn.addEventListener("click", () => {
-        popup.classList.add("hide");
-        music.volume = 0.6;
-        music.play().catch(err => console.log("Audio blocked:", err));
-      });
-    });
-  </script>
-
-  <script>
-    // Mobile menu with animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const menuToggle = document.getElementById("menuToggle");
-      const navLinks = document.getElementById("navLinks");
-      const navOverlay = document.getElementById("navOverlay");
-      const navAnchors = document.querySelectorAll("#navLinks a");
-
-      const openMenu = () => {
-        navLinks.classList.add("show");
-        navOverlay.classList.add("show");
-        menuToggle.classList.add("active");
-        menuToggle.setAttribute("aria-expanded", "true");
-        document.body.style.overflow = "hidden";
-      };
-
-      const closeMenu = () => {
-        navLinks.classList.remove("show");
-        navOverlay.classList.remove("show");
-        menuToggle.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-      };
-
-      menuToggle.addEventListener("click", () => {
-        const isOpen = navLinks.classList.contains("show");
-        isOpen ? closeMenu() : openMenu();
-      });
-
-      navOverlay.addEventListener("click", closeMenu);
-
-      navAnchors.forEach(link => {
-        link.addEventListener("click", closeMenu);
-      });
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) closeMenu();
-      });
-    });
-  </script>
+  <div class="float-wrap">
+    <a class="float-btn" href="#" title="แชต">💬</a>
+    <a class="float-btn" href="#" title="โปรโมชัน">🎀</a>
+    <a class="float-btn" href="#" title="เมนู">⭐</a>
+  </div>
 </body>
 </html>
